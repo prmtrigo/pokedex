@@ -1,0 +1,163 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Press+Start+2P&display=swap');
+
+/* Reset some basic styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: #121212; /* Cor de fundo escura */
+    color: #e0e0e0; /* Cor do texto suave */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 16px;
+    padding: 0 20px; /* Adiciona margem à esquerda e à direita */
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5em; /* Tamanho do título ajustado */
+    margin: 20px 0;
+    text-align: center;
+    color: #c1c1c1; /* Cor do título mais clara */
+}
+
+#pokedex-container {
+    width: 100%;
+    max-width: 1200px; /* Define a largura máxima do contêiner */
+    margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(30, 30, 30, 0.9); /* Cor de fundo do contêiner com leve transparência */
+    border-radius: 16px; /* Bordas arredondadas no contêiner */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Sombra do contêiner */
+}
+
+#pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta o número de cards por linha com base no tamanho da tela */
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pokemon {
+    background: linear-gradient(145deg, #1e1e1e, #2a2a2a); /* Gradiente no fundo dos cards */
+    border-radius: 12px; /* Borda arredondada mais suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra mais suave */
+    text-align: center;
+    padding: 20px; /* Ajuste o tamanho do card */
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza a transformação e a sombra */
+    box-sizing: border-box;
+    position: relative;
+}
+
+.pokemon:hover {
+    transform: translateY(-8px) scale(1.05); /* Efeito de pular e aumentar levemente */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada ao passar o mouse */
+}
+
+.pokemon img {
+    max-width: 120px; /* Tamanho do sprite ajustado */
+    margin-bottom: 10px;
+    transition: transform 0.3s; /* Suaviza a animação */
+}
+
+.pokemon img:hover {
+    animation: jump 0.6s ease-in-out; /* Animação de pular para o sprite do Pokémon */
+}
+
+.pokemon h2 {
+    font-size: 1.3em; /* Tamanho do texto ajustado */
+    margin: 10px 0;
+    font-family: 'Press Start 2P', cursive;
+    color: #c1c1c1; /* Cor do texto mais clara */
+}
+
+.pokemon p.number {
+    font-size: 1em; /* Tamanho do texto ajustado */
+    color: #9e9e9e; /* Cor do número mais clara */
+    font-family: 'Press Start 2P', cursive; /* Mantém a mesma fonte dos cards */
+    margin-bottom: 10px; /* Margem entre o número e o nome */
+}
+
+.pokemon-types {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pokemon-type {
+    background-color: #2a2a2a; /* Cor de fundo mais suave para os tipos */
+    border-radius: 5px;
+    padding: 5px 8px; /* Ajuste o tamanho do texto */
+    color: #e0e0e0; /* Cor do texto mais clara */
+    font-size: 0.8em; /* Ajuste o tamanho do texto */
+    text-transform: capitalize; /* Primeira letra maiúscula */
+}
+
+/* Type colors */
+.pokemon-type.normal { background-color: #a8a77a; color: #2a2a2a; }
+.pokemon-type.fire { background-color: #ee8130; color: #2a2a2a; }
+.pokemon-type.water { background-color: #6390f0; color: #2a2a2a; }
+.pokemon-type.electric { background-color: #f7d02c; color: #2a2a2a; }
+.pokemon-type.grass { background-color: #7ac74c; color: #2a2a2a; }
+.pokemon-type.ice { background-color: #96d9d6; color: #2a2a2a; }
+.pokemon-type.fighting { background-color: #c22e28; color: #2a2a2a; }
+.pokemon-type.poison { background-color: #a33ea1; color: #2a2a2a; }
+.pokemon-type.ground { background-color: #e2bf65; color: #2a2a2a; }
+.pokemon-type.flying { background-color: #a98ff3; color: #2a2a2a; }
+.pokemon-type.psychic { background-color: #f95587; color: #2a2a2a; }
+.pokemon-type.bug { background-color: #a6b91a; color: #2a2a2a; }
+.pokemon-type.rock { background-color: #b6a136; color: #2a2a2a; }
+.pokemon-type.ghost { background-color: #735797; color: #2a2a2a; }
+.pokemon-type.dragon { background-color: #6f35fc; color: #2a2a2a; }
+.pokemon-type.dark { background-color: #705746; color: #2a2a2a; }
+.pokemon-type.steel { background-color: #b7b7ce; color: #2a2a2a; }
+.pokemon-type.fairy { background-color: #d685ad; color: #2a2a2a; }
+
+/* Animation for the jump effect */
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Ajuste a altura do pulo */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    #pokedex {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta o número de cards por linha com base no tamanho da tela */
+    }
+}
+
+@media (max-width: 900px) {
+    #pokedex {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajusta o número de cards por linha com base no tamanho da tela */
+    }
+}
+
+@media (max-width: 600px) {
+    #pokedex {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusta o número de cards por linha com base no tamanho da tela */
+    }
+}
+
+@media (max-width: 400px) {
+    #pokedex {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajusta o número de cards por linha com base no tamanho da tela */
+    }
+}
