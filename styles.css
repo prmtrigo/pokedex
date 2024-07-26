@@ -9,13 +9,14 @@ body, h1, h2, h3, p {
 }
 
 body {
-    background-color: #121212; /* Cor de fundo escura */
+    background: linear-gradient(135deg, #1a1a1a, #121212); /* Gradiente de fundo */
     color: #e0e0e0; /* Cor do texto suave */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     padding: 0 20px; /* Adiciona margem à esquerda e à direita */
     box-sizing: border-box;
@@ -26,7 +27,8 @@ h1 {
     font-size: 2.5em; /* Tamanho do título ajustado */
     margin: 20px 0;
     text-align: center;
-    color: #c1c1c1; /* Cor do título mais clara */
+    color: #f0f0f0; /* Cor do título mais clara */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra do texto */
 }
 
 #pokedex-container {
@@ -49,7 +51,7 @@ h1 {
 }
 
 .pokemon {
-    background: linear-gradient(145deg, #1e1e1e, #2a2a2a); /* Gradiente no fundo dos cards */
+    background: linear-gradient(145deg, #2a2a2a, #1e1e1e); /* Gradiente no fundo dos cards */
     border-radius: 12px; /* Borda arredondada mais suave */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra mais suave */
     text-align: center;
@@ -57,28 +59,32 @@ h1 {
     transition: transform 0.3s, box-shadow 0.3s; /* Suaviza a transformação e a sombra */
     box-sizing: border-box;
     position: relative;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
 }
 
 .pokemon:hover {
     transform: translateY(-8px) scale(1.05); /* Efeito de pular e aumentar levemente */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada ao passar o mouse */
+    border-color: #3f51b5; /* Cor da borda ao passar o mouse */
 }
 
 .pokemon img {
     max-width: 120px; /* Tamanho do sprite ajustado */
     margin-bottom: 10px;
-    transition: transform 0.3s; /* Suaviza a animação */
+    transition: transform 0.3s, filter 0.3s; /* Suaviza a animação */
 }
 
 .pokemon img:hover {
-    animation: jump 0.6s ease-in-out; /* Animação de pular para o sprite do Pokémon */
+    transform: scale(1.15); /* Efeito de aumentar o sprite ao passar o mouse */
+    filter: brightness(1.2); /* Aumenta o brilho do sprite */
 }
 
 .pokemon h2 {
     font-size: 1.3em; /* Tamanho do texto ajustado */
     margin: 10px 0;
     font-family: 'Press Start 2P', cursive;
-    color: #c1c1c1; /* Cor do texto mais clara */
+    color: #f0f0f0; /* Cor do texto mais clara */
 }
 
 .pokemon p.number {
@@ -123,19 +129,6 @@ h1 {
 .pokemon-type.dark { background-color: #705746; color: #2a2a2a; }
 .pokemon-type.steel { background-color: #b7b7ce; color: #2a2a2a; }
 .pokemon-type.fairy { background-color: #d685ad; color: #2a2a2a; }
-
-/* Animation for the jump effect */
-@keyframes jump {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px); /* Ajuste a altura do pulo */
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
 
 /* Responsive design */
 @media (max-width: 1200px) {

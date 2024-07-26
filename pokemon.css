@@ -1,0 +1,199 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Press+Start+2P&display=swap');
+
+/* Reset some basic styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive; /* Fonte principal */
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a1a, #121212); /* Gradiente de fundo */
+    color: #e0e0e0; /* Cor do texto suave */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 16px;
+    padding: 0 20px; /* Adiciona margem à esquerda e à direita */
+    box-sizing: border-box;
+}
+
+#navigation-top {
+    width: 100%;
+    background: rgba(30, 30, 30, 0.9); /* Cor de fundo com leve transparência */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 10; /* Garantir que os botões fiquem sobre o conteúdo */
+}
+
+#navigation-top a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 50%;
+    transition: color 0.3s;
+}
+
+#navigation-top a:hover {
+    color: #f7d02c; /* Cor do texto ao passar o mouse */
+}
+
+#pokemon-details-container {
+    margin-top: 120px; /* Margem para o conteúdo não ficar atrás dos botões de navegação */
+    width: 100%;
+    max-width: 800px; /* Largura máxima do contêiner */
+    background: rgba(30, 30, 30, 0.9); /* Cor de fundo com leve transparência */
+    border-radius: 16px; /* Bordas arredondadas no contêiner */
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Sombra do contêiner */
+    text-align: center;
+    position: relative; /* Permite posicionar os botões de navegação dentro do contêiner */
+}
+
+#pokemon-image {
+    max-width: 400px; /* Aumentar o tamanho máximo da imagem */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra na imagem */
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive; /* Aplicar a fonte digital */
+}
+
+#pokemon-name {
+    font-size: 2em; /* Tamanho do texto ajustado */
+    color: #f0f0f0; /* Cor do texto mais clara */
+    margin-bottom: 10px;
+    font-family: 'Press Start 2P', cursive; /* Aplicar a fonte digital */
+}
+
+#pokemon-number {
+    font-size: 1.2em;
+    color: #9e9e9e; /* Cor do número mais clara */
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive; /* Aplicar a fonte digital */
+}
+
+#pokemon-types {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.pokemon-type {
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #e0e0e0;
+    font-size: 0.9em;
+    text-transform: capitalize;
+    font-family: 'Press Start 2P', cursive; /* Aplicar a fonte digital */
+}
+
+/* Type colors */
+.pokemon-type.normal { background-color: #a8a77a; color: #2a2a2a; }
+.pokemon-type.fire { background-color: #ee8130; color: #2a2a2a; }
+.pokemon-type.water { background-color: #6390f0; color: #2a2a2a; }
+.pokemon-type.electric { background-color: #f7d02c; color: #2a2a2a; }
+.pokemon-type.grass { background-color: #7ac74c; color: #2a2a2a; }
+.pokemon-type.ice { background-color: #96d9d6; color: #2a2a2a; }
+.pokemon-type.fighting { background-color: #c22e28; color: #2a2a2a; }
+.pokemon-type.poison { background-color: #a33ea1; color: #2a2a2a; }
+.pokemon-type.ground { background-color: #e2bf65; color: #2a2a2a; }
+.pokemon-type.flying { background-color: #a98ff3; color: #2a2a2a; }
+.pokemon-type.psychic { background-color: #f95587; color: #2a2a2a; }
+.pokemon-type.bug { background-color: #a6b91a; color: #2a2a2a; }
+.pokemon-type.rock { background-color: #b6a136; color: #2a2a2a; }
+.pokemon-type.ghost { background-color: #735797; color: #2a2a2a; }
+.pokemon-type.dragon { background-color: #6f35fc; color: #2a2a2a; }
+.pokemon-type.dark { background-color: #705746; color: #2a2a2a; }
+.pokemon-type.steel { background-color: #b7b7ce; color: #2a2a2a; }
+.pokemon-type.fairy { background-color: #d685ad; color: #2a2a2a; }
+
+#pokemon-abilities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ability {
+    background-color: #2a2a2a; /* Cor de fundo mais suave para habilidades */
+    border: 2px solid #444; /* Borda ao redor das habilidades */
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #e0e0e0; /* Cor do texto mais clara */
+    font-size: 0.9em;
+    text-transform: capitalize; /* Primeira letra maiúscula */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para destacar */
+    min-width: 100px; /* Largura mínima para garantir uma boa visualização */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive; /* Aplicar a fonte digital */
+}
+
+#pokemon-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9em;
+}
+
+.pokemon-stat {
+    background-color: #2a2a2a; /* Cor de fundo mais suave para as estatísticas */
+    border-radius: 5px;
+    padding: 10px;
+    color: #e0e0e0; /* Cor do texto mais clara */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para destacar */
+    font-family: 'Press Start 2P', cursive; /* Aplicar a fonte digital */
+}
+
+.stat-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-bar-container {
+    position: relative;
+    height: 20px;
+    background-color: #444; 
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.stat-bar {
+    height: 100%;
+    background-color: #b99b20; /* Mantém a cor amarela para destaque */
+    border-radius: 5px;
+    text-align: right;
+    color: #fff;
+    padding-right: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #pokemon-details-container {
+        padding: 10px;
+    }
+
+    #pokemon-image {
+        max-width: 300px; /* Ajuste para a imagem em telas menores */
+    }
+
+    #navigation-top a {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}

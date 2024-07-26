@@ -140,6 +140,7 @@ function displayPokemon(pokemon, dexNumber) {
     
     const pokemonElement = document.createElement("div");
     pokemonElement.classList.add("pokemon");
+    pokemonElement.setAttribute("data-id", pokemon.id);
 
     const pokemonNumber = document.createElement("p");
     pokemonNumber.textContent = `#${dexNumber.toString().padStart(3, '0')}`;
@@ -165,6 +166,11 @@ function displayPokemon(pokemon, dexNumber) {
 
     pokemonElement.appendChild(pokemonTypes);
     pokedex.appendChild(pokemonElement);
+
+    // Adicionar evento de clique
+    pokemonElement.addEventListener('click', () => {
+        window.location.href = `pokemon.html?id=${pokemon.id}`;
+    });
 }
 
 function capitalizeFirstLetter(string) {
